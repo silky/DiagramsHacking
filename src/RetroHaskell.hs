@@ -86,24 +86,28 @@ transforms d = do
 retroHaskell :: IO (QDiagram B V2 Double Any)
 retroHaskell = do
     -- scale
-    let s = 0.01
+    let s = 0.01 / 1.8
+        a = 55 * 2 + 5
+        b = 15 * 2 + 5
+        c = 1  * 2
+        start = 101
 
-    points    <- getPoints halton 500
+    points    <- getPoints halton 1000
 
-    lambdas   <- mapM (mkPoint (logo # dropShadow # scale 0.01))
-                      (take 55 $ drop 100 points)
+    lambdas   <- mapM (mkPoint (logo # dropShadow # scale s))
+                      (take a $ drop start points)
 
-    circles   <- mapM (mkPoint (circle 1 # lw none # dropShadow # scale 0.01))
-                      (take 55 $ drop 155 points)
+    circles   <- mapM (mkPoint (circle 1 # lw none # dropShadow # scale s))
+                      (take a $ drop (start + a) points)
 
-    rects1    <- mapM (mkPoint (rect 10 1 # lw none # dropShadow # scale 0.01))
-                      (take 15 $ drop 210 points)
+    rects1    <- mapM (mkPoint (rect 8 1 # scale 0.7 # lw none # dropShadow # scale s))
+                      (take b $ drop (start + 2*a) points)
 
-    triangles <- mapM (mkPoint (triangle 3 # lw none # dropShadow # scale 0.01))
-                      (take 15 $ drop 225 points)
+    triangles <- mapM (mkPoint (triangle 3 # lw none # dropShadow # scale s))
+                      (take b $ drop (start + b + 2*a) points)
 
-    rects2    <- mapM (mkPoint (bars # dropShadow # scale 0.01))
-                      (take 1 $ drop 240 points)
+    rects2    <- mapM (mkPoint (bars # dropShadow # scale s))
+                      (take c $ drop (start + 2*b + 2*a) points)
 
     let diags = map position [ lambdas
                              , circles
