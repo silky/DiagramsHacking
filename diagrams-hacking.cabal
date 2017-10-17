@@ -17,8 +17,8 @@ cabal-version:  >= 1.10
 extra-source-files:
     README.md
 
-executable retro-haskell
-  main-is: src/RetroHaskell.hs
+executable force-layout
+  main-is: src/ForceLayout.hs
   build-depends:
       base >= 4.7 && < 5
     , diagrams
