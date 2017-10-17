@@ -30,3 +30,5 @@ executables:
 executables:
   force-layout:
     main: src/ForceLayout.hs
+    # dependencies:
+    #   - tensorflow

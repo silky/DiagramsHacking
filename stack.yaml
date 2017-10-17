@@ -2,6 +2,17 @@ resolver: lts-9.9
 
 packages:
     - .
+    - location: 
+        git    : https://github.com/tensorflow/haskell/
+        commit : 2dcc921f6e2119995dc2558295e3548c1d93f24f
+      subdirs:
+        - tensorflow
+        - tensorflow-ops
+      extra-dep: true
 
 extra-deps:
-    - gsl-random-0.5.3
+  - gsl-random-0.5.3
+ 
+  
+  
+  
