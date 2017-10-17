@@ -17,7 +17,6 @@ import Diagrams.TwoD.Path.Boolean
 import GSL.Random.Quasi
 import System.Random
 
-
 -- TODO: Make this less hacky
 logoPoints = [ -- >
                [ (0, 3), (1.2, 1.5), (0,0) ]
@@ -41,6 +40,14 @@ logo = Path trails # expandPath 0.2
     where
         verts  = (map . map) p2 logoPoints
         trails = map fromVertices verts 
+
+
+dropShadow :: Diagram B -> Diagram B
+dropShadow d = d <> d # (translateX 0.4)
+                      # (translateY (-0.4))
+                      # fc black
+
+-- addDropShadow d = d <> d # (translate (0.1, 0.2))
 
 
 -- TODO: Use this.
@@ -78,13 +85,25 @@ transforms d = do
 
 retroHaskell :: IO (QDiagram B V2 Double Any)
 retroHaskell = do
+    -- scale
+    let s = 0.01
+
     points    <- getPoints halton 500
 
-    lambdas   <- mapM (mkPoint (logo # scale 0.01    )) (take 55 $ drop 100 points)
-    circles   <- mapM (mkPoint (circle 0.01 # lw none)) (take 55 $ drop 155 points)
-    rects1    <- mapM (mkPoint (rect 10 1 # lw none # scale 0.01)) (take 15 $ drop 210 points)
-    triangles <- mapM (mkPoint (triangle 3 # lw none # scale 0.01)) (take 15 $ drop 225 points)
-    rects2    <- mapM (mkPoint (bars # scale 0.01)) (take 1 $ drop 240 points)
+    lambdas   <- mapM (mkPoint (logo # dropShadow # scale 0.01))
+                      (take 55 $ drop 100 points)
+
+    circles   <- mapM (mkPoint (circle 1 # lw none # dropShadow # scale 0.01))
+                      (take 55 $ drop 155 points)
+
+    rects1    <- mapM (mkPoint (rect 10 1 # lw none # dropShadow # scale 0.01))
+                      (take 15 $ drop 210 points)
+
+    triangles <- mapM (mkPoint (triangle 3 # lw none # dropShadow # scale 0.01))
+                      (take 15 $ drop 225 points)
+
+    rects2    <- mapM (mkPoint (bars # dropShadow # scale 0.01))
+                      (take 1 $ drop 240 points)
 
     let diags = map position [ lambdas
                              , circles
