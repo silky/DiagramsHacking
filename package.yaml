@@ -23,6 +23,9 @@ dependencies:
 
 
 executables:
+  random-placement:
+    main: src/RandomPlacement.hs
+
   retro-haskell:
     main: src/RetroHaskell.hs
 

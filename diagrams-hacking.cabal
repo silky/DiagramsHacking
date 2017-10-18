@@ -31,6 +31,20 @@ executable force-layout
     , split
   default-language: Haskell2010
 
+executable random-placement
+  main-is: src/RandomPlacement.hs
+  build-depends:
+      base >= 4.7 && < 5
+    , diagrams
+    , diagrams-cairo
+    , diagrams-contrib
+    , diagrams-lib
+    , gsl-random
+    , palette
+    , random
+    , split
+  default-language: Haskell2010
+
 executable retro-haskell
   main-is: src/RetroHaskell.hs
   build-depends:
