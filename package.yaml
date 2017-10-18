@@ -26,8 +26,6 @@ executables:
   retro-haskell:
     main: src/RetroHaskell.hs
 
-
-executables:
   force-layout:
     main: src/ForceLayout.hs
     # dependencies:
