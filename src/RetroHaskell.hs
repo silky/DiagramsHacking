@@ -7,7 +7,6 @@ import Control.Monad.IO.Class (liftIO)
 import Data.Colour.Palette.BrewerSet
 import Data.List (intersperse)
 import Data.List hiding (union)
-import Data.List.Split (divvy)
 import Diagrams.Backend.Cairo.CmdLine
 import Diagrams.Prelude hiding (union)
 import Diagrams.TwoD.Offset
@@ -44,8 +43,6 @@ dropShadow :: Diagram B -> Diagram B
 dropShadow d = d <> d # (translateX 0.4)
                       # (translateY (-0.4))
                       # fc black
-
--- addDropShadow d = d <> d # (translate (0.1, 0.2))
 
 
 -- TODO: Use this.
@@ -85,9 +82,9 @@ retroHaskell :: IO (QDiagram B V2 Double Any)
 retroHaskell = do
     -- scale
     let s = 0.01 / 1.8
-        a = 55 * 2 + 5
-        b = 15 * 2 + 5
-        c = 1  * 2
+        a = 55 * 2 + 20
+        b = 15 * 2 + 20
+        c = 1  * 3
         start = 101
 
     points    <- getPoints halton 1000
