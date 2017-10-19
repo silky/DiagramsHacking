@@ -10,7 +10,9 @@ libgsl-dev` on Ubuntu works for me; something else might work for you!
 ## `RandomPlacement`
 
 A few options for random placement of points. Take a look at the source code
-for more details.
+for more details. This was written for this blogpost on the Silverpond
+website: [Low-Discrepency Sequences, Haskell and
+T-Shirts!](http://silverpond.com.au/2017/10/19/Low-Discrepency-Sequences-Haskell-And-T-Shirts.html).
 
 ### Building
 

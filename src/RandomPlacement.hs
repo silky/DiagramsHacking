@@ -23,7 +23,7 @@ main :: IO ()
 -- Example 3 - Halton!
 -- main = mainWith (samples halton)
 --
--- Example 4 - Halton!
+-- Example 4 - Sobol!
 main = mainWith (samples sobol)
 
 
