@@ -45,6 +45,15 @@ stack build :retro-haskell
 ```
 
 
+### T-Shirt!
+
+This code is available in T-Shirt form:
+
+![](examples/retro-haskell.png)
+
+Grab one here: [noonvandersilk on PAOM](https://paom.com/products/RetroHaskellTeev2)!
+
+
 ## `ForceLayout` (Incomplete)
 
 ### Building
