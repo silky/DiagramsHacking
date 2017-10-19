@@ -28,7 +28,6 @@ executable force-layout
     , gsl-random
     , palette
     , random
-    , split
   default-language: Haskell2010
 
 executable random-placement
@@ -56,5 +55,4 @@ executable retro-haskell
     , gsl-random
     , palette
     , random
-    , split
   default-language: Haskell2010

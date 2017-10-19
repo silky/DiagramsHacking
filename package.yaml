@@ -19,12 +19,13 @@ dependencies:
   - gsl-random
   - palette
   - random
-  - split
 
 
 executables:
   random-placement:
     main: src/RandomPlacement.hs
+    dependencies:
+      - split
 
   retro-haskell:
     main: src/RetroHaskell.hs
