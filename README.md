@@ -49,7 +49,7 @@ stack build :retro-haskell
 
 This code is available in T-Shirt form:
 
-![](examples/retro-haskell.png)
+![](examples/retro-haskell-t-shirt.png)
 
 Grab one here: [noonvandersilk on PAOM](https://paom.com/products/RetroHaskellTeev2)!
 
